@@ -1,0 +1,20 @@
+cd coit-backend1
+mvn deploy
+
+cd coit-backend1
+docker build -t bssenthilkumar11/coit-backend1:$version .
+
+docker images
+docker run -d --name=backend1 bssenthilkumar11/coit-backend1:$version
+
+docker ps
+sleep 10
+docker stop backend1
+
+docker rm backend1
+docker push bssenthilkumar11/coit-backend1:$version
+
+docker rmi bssenthilkumar11/coit-backend1:$version
+
+
+**/target/*.jar
